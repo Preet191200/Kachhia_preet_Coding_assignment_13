@@ -1,0 +1,76 @@
+{
+  "name": "kachhia_preet_ui_garden_build_checks",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.126",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-scripts": "^5.0.1",
+    "styled-components": "^6.3.11",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --watchAll=false",
+    "lint": "eslint src --ext .ts,.tsx --max-warnings=0",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "format:check": "prettier --check src/**/*.{ts,tsx}",
+    "prepare": "husky"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "prettier --check",
+      "eslint --max-warnings=0"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.2.12",
+    "@storybook/addon-docs": "^10.2.12",
+    "@storybook/preset-create-react-app": "^10.2.12",
+    "@storybook/react-webpack5": "^10.2.13",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@types/styled-components": "^5.1.36",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "ajv": "^8.18.0",
+    "ajv-keywords": "^5.1.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-storybook": "^10.2.13",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
+    "storybook": "^10.2.12",
+    "typescript": "^4.9.5"
+  }
+}
