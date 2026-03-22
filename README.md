@@ -1,27 +1,72 @@
-# Coding Assignment 12
+# Kachhia_Preet_Coding_Assignment13
 
-This project contains a Dockerized production build of the React component library.
+## Assignment 13 — UC Component Library with Build Checks
 
-## Requirements
-- Docker installed
+### Overview
+This project is a React + TypeScript component library with full code quality checks including ESLint, Prettier, Husky pre-commit hooks, and GitHub Actions CI/CD pipeline.
 
-## Build the Docker Image
+---
 
-docker build -t kachhia_preet_coding_assignment12 .
+## Running with Docker
 
-## Run the Container
+### Prerequisites
+- Docker installed on your machine
 
-docker run -p 8083:8083 --name kachhia_preet_coding_assignment12 kachhia_preet_coding_assignment12
+### Steps
 
-## Access the Application
+1. Clone the repository
+```bash
+git clone https://github.com/Preet191200/Kachhia_preet_Coding_assignment_13.git
+cd Kachhia_preet_Coding_assignment_13
+```
 
-Open browser:
+2. Build the Docker image
+```bash
+docker build -t kachhia_preet_coding_assignment13 .
+```
 
-http://localhost:8083
+3. Run the container
+```bash
+docker run -p 8018:8018 --name kachhia_preet_coding_assignment13 kachhia_preet_coding_assignment13
+```
 
-## Details
+4. Open in browser
+```
+http://localhost:8018
+```
 
-- Production build created using: npm run build
-- Served using nginx
-- Working directory inside container:
-  /kachhia_preet_ui_garden
+---
+
+## Pre-commit Hooks (Husky)
+
+Before every git commit, the following checks run automatically:
+- Prettier formatting check
+- ESLint code quality check
+- All unit tests
+
+If any check fails, the commit is blocked.
+
+---
+
+## CI/CD Pipeline (GitHub Actions)
+
+Every push and pull request to main triggers the same checks via GitHub Actions:
+- Prettier formatting check
+- ESLint code quality check
+- All unit tests
+- Production build
+
+The workflow file is located at .github/workflows/ci.yml
+
+---
+
+## Available Scripts
+
+| Script | Description |
+|--------|-------------|
+| npm start | Runs the app in development mode |
+| npm test | Runs all tests |
+| npm run build | Builds the app for production |
+| npm run lint | Runs ESLint |
+| npm run format | Formats code with Prettier |
+| npm run format:check | Checks formatting without writing |

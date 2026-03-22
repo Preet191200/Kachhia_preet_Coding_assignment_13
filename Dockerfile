@@ -1,24 +1,23 @@
-# ---------- Stage 1: Build Storybook ----------
-FROM node:20-alpine AS builder
+# Stage 1: Build the React app
+FROM node:18-alpine AS builder
 
-WORKDIR /kachhia_preet_ui_garden
+WORKDIR /kachhia_preet_ui_garden_build_checks
 
 COPY package*.json ./
-
-RUN npm install
+RUN npm install --legacy-peer-deps
 
 COPY . .
+RUN npm run build
 
-RUN npx storybook build
-
-
-# ---------- Stage 2: Serve with Nginx ----------
+# Stage 2: Serve with nginx on port 8018
 FROM nginx:alpine
 
 RUN rm -rf /usr/share/nginx/html/*
 
-COPY --from=builder /kachhia_preet_ui_garden/storybook-static /usr/share/nginx/html
+COPY --from=builder /kachhia_preet_ui_garden_build_checks/build /usr/share/nginx/html
 
-EXPOSE 8083
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 8018
 
 CMD ["nginx", "-g", "daemon off;"]
