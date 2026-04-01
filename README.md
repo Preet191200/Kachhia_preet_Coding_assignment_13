@@ -133,3 +133,37 @@ docker run -p 8018:8018 --name kachhia_preet_coding_assignment13 kachhia_preet_c
 Then open the browser and go to http://localhost:8018 and show the app running.
 
 Demo order summary:
+
+
+
+
+
+if not running
+
+npm run format
+
+Then manually remove the const x=1 line we added. Run:
+bash
+python3 << 'EOF'
+with open('src/App.tsx', 'r') as f:
+    lines = f.readlines()
+
+lines = [l for l in lines if 'const x=1' not in l and 'const x = 1' not in l]
+
+with open('src/App.tsx', 'w') as f:
+    f.writelines(lines)
+
+print('Done')
+EOF
+Then verify everything passes locally:
+bash
+npm run format:check
+npm run lint
+npm test
+
+Once all three pass, commit and push:
+bash
+
+git add .
+git commit -m "fix: restore App.tsx to correct state"
+git push origin main
