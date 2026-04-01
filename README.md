@@ -70,3 +70,66 @@ The workflow file is located at .github/workflows/ci.yml
 | npm run lint | Runs ESLint |
 | npm run format | Formats code with Prettier |
 | npm run format:check | Checks formatting without writing |
+-----------------------------------------------------------------------------------------
+
+Here is a complete demo script you can follow step by step:
+
+Part 1 — Break Prettier and show Husky blocks the commit
+Open src/App.tsx and add bad formatting — extra spaces and wrong quotes:
+
+--------------------bash
+python3 << 'EOF'
+with open('src/App.tsx', 'r') as f:
+    content = f.read()
+
+broken = content.replace("'", '"', 1)
+broken = "const x=1\n" + broken
+
+with open('src/App.tsx', 'w') as f:
+    f.write(broken)
+
+print('Done')
+EOF
+----------------------
+Now try to commit — Husky should block it:
+bash
+git add .
+git commit -m "demo: intentionally broken prettier"
+You should see Prettier fail and the commit get blocked. Show this to the instructor.
+
+Part 2 — Push the broken code anyway using --no-verify to bypass Husky
+bash
+git push origin main --no-verify
+```
+
+Wait 2 minutes then go to:
+```
+https://github.com/Preet191200/Kachhia_preet_Coding_assignment_13/actions
+Show the instructor the red X — GitHub Actions caught it even though Husky was bypassed.
+
+Part 3 — Fix the code and show everything passes
+Fix the file:
+bash
+npm run format
+npm run lint
+npm test
+All three should pass cleanly. Show the output to the instructor.
+
+Part 4 — Commit and push the fix
+bash
+git add .
+git commit -m "fix: restore correct formatting"
+git push origin main
+Wait 2 minutes and show the green checkmark in GitHub Actions.
+
+Part 5 — Run Docker and show the app at localhost:8018
+bash# Stop any existing container first
+docker stop kachhia_preet_coding_assignment13
+docker rm kachhia_preet_coding_assignment13
+
+# Build and run
+docker build -t kachhia_preet_coding_assignment13 .
+docker run -p 8018:8018 --name kachhia_preet_coding_assignment13 kachhia_preet_coding_assignment13
+Then open the browser and go to http://localhost:8018 and show the app running.
+
+Demo order summary:
