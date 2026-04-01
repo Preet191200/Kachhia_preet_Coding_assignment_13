@@ -1,7 +1,7 @@
-const x=1
-import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
+const x = 1;
+import React from 'react';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export interface ButtonProps {
   label: string;
@@ -8,18 +8,18 @@ export interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   label,
-  backgroundColor = "blue",
+  backgroundColor = 'blue',
   disabled = false,
 }) => {
   return (
     <button
       style={{
         backgroundColor: backgroundColor,
-        padding: "10px 20px",
-        color: "white",
-        border: "none",
-        borderRadius: "4px",
-        cursor: disabled ? "not-allowed" : "pointer",
+        padding: '10px 20px',
+        color: 'white',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.6 : 1,
       }}
       disabled={disabled}

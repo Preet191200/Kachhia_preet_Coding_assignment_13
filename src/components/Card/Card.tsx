@@ -1,6 +1,6 @@
-import React from "react";
-import styled from "styled-components";
-import { CardProps } from "./Card.types";
+import React from 'react';
+import styled from 'styled-components';
+import { CardProps } from './Card.types';
 
 const StyledCard = styled.div<{ bg: string }>`
   padding: 20px;
@@ -13,7 +13,7 @@ const StyledCard = styled.div<{ bg: string }>`
 const Card: React.FC<CardProps> = ({
   title,
   description,
-  backgroundColor = "#f0f0f0",
+  backgroundColor = '#f0f0f0',
 }) => (
   <StyledCard bg={backgroundColor}>
     <h3>{title}</h3>

@@ -1,13 +1,13 @@
-import { render, screen } from "@testing-library/react";
-import Text from "./index";
+import { render, screen } from '@testing-library/react';
+import Text from './index';
 
-test("Text is visible", () => {
+test('Text is visible', () => {
   render(<Text value="Test" />);
-  expect(screen.getByText("Test")).toBeVisible();
+  expect(screen.getByText('Test')).toBeVisible();
 });
-test("Text color changes", () => {
+test('Text color changes', () => {
   render(<Text value="Test" color="red" />);
-  expect(screen.getByText("Test")).toHaveStyle("color: red");
+  expect(screen.getByText('Test')).toHaveStyle('color: red');
 });
 
 export {};
